@@ -12,15 +12,12 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - name: Checkout submodules
-        uses: srt32/git-actions@v0.0.3
-        with:
-          args: git submodule update --init --recursive
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: git submodule update --init --recursive
       - run: npm install
       - run: npm run lint
       - run: npm run build:protobuf
