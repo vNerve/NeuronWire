@@ -17,11 +17,11 @@ Under Heavy Development.
 
 ## Example
 Place `script` tag before the end of `body`
-```$html
+```html
 <script src="NeuronWire.js"></script>
 ```
 Sample Code:
-```$javascript
+```javascript
 // Create Connector
 const connector = new NeuronWire.ClientConnector.StompClientConnector({presetServer:0})
 connector.activate() // Connect
