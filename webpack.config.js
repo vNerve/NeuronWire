@@ -42,8 +42,8 @@ module.exports = {
     ],
   },
   output: {
-    library: packageJson.name,
-    filename: `${packageJson.name}.js`,
+    library: 'NeuronWire',
+    filename: 'NeuronWire.js',
     libraryTarget: 'umd',
     libraryExport: "default",
     path: path.resolve(__dirname, 'dist'),

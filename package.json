@@ -1,5 +1,5 @@
 {
-  "name": "neuronwire",
+  "name": "@vnerve/neuronwire",
   "version": "0.0.1",
   "description": "This is vNerve's JavaScript SDK, NeuronWire.",
   "main": "dist/NeuronWire.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssysm/NeuronWire.git"
+    "url": "git+https://github.com/vNerve/NeuronWire.git"
   },
   "keywords": [
     "vNerve",
@@ -29,9 +29,9 @@
   "author": "ssysm",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ssysm/NeuronWire/issues"
+    "url": "https://github.com/vNerve/NeuronWire/issues"
   },
-  "homepage": "https://github.com/ssysm/NeuronWire#readme",
+  "homepage": "https://github.com/vNerve/NeuronWire#readme",
   "devDependencies": {
     "@types/websocket": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^2.34.0",

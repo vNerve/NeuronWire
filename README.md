@@ -18,7 +18,7 @@ Under Heavy Development.
 ## Example
 Place `script` tag before the end of `body`
 ```html
-<script src="NeuronWire.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/neuronwire@0.0.1/dist/NeuronWire.js"></script>
 ```
 Sample Code:
 ```javascript
