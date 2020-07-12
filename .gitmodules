@@ -1,0 +1,3 @@
+[submodule "src/types/vNerveTransmitter"]
+	path = src/types/vNerveTransmitter
+	url = https://github.com/vNerve/vNerveTransmitter
