@@ -1,8 +1,10 @@
+/*eslint-disable @typescript-eslint/no-var-requires*/
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const package = require('./package.json');
+const packageJson = require('./package.json');
 
 module.exports = {
   entry: './src/index.ts',
@@ -40,8 +42,8 @@ module.exports = {
     ],
   },
   output: {
-    library: package.name,
-    filename: `${package.name}.js`,
+    library: packageJson.name,
+    filename: `${packageJson.name}.js`,
     libraryTarget: 'umd',
     libraryExport: "default",
     path: path.resolve(__dirname, 'dist'),
