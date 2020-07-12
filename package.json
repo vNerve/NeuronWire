@@ -1,5 +1,5 @@
 {
-  "name": "NeuronWire",
+  "name": "neuronwire",
   "version": "0.0.1",
   "description": "This is vNerve's JavaScript SDK, NeuronWire.",
   "main": "dist/NeuronWire.js",
