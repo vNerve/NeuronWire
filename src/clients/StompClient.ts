@@ -1,6 +1,6 @@
 import { ENDPOINT } from "../constants/ENDPOINT";
 import { Client, Frame, messageCallbackType, StompSubscription } from "@stomp/stompjs";
-import { IClient } from "./IClient";
+import {clientCallback, IClient} from "./IClient";
 
 /**
  * STOMP(WebSocket) Protocol Client.
@@ -23,12 +23,12 @@ export default class StompClient implements IClient{
      * @param config Client Config
      * @description This constructor will create an instance of STOMP.js Websocket Connection
      */
-    constructor(config: {serverURL: string;
-                username: string; password: string;
-                retryTime: number;
-                heartbeatIn: number;
-                heartbeatOut: number;
-                presetServer: 0 | 1; isDebugEnabled: boolean;}) {
+    constructor(config: {serverURL?: string;
+                username?: string; password?: string;
+                retryTime?: number;
+                heartbeatIn?: number;
+                heartbeatOut?: number;
+                presetServer?: 0 | 1; isDebugEnabled?: boolean;}) {
       // important sever config
       config.serverURL === undefined ? this.serverURL = ENDPOINT[this.presetServer].protocol +
             '://' + ENDPOINT[this.presetServer].url : this.serverURL = config.serverURL;
@@ -53,7 +53,7 @@ export default class StompClient implements IClient{
         heartbeatIncoming: this.heartbeatIn,
         heartbeatOutgoing: this.heartbeatOut,
         debug: this.isDebugEnabled ? (str): void=>{
-          console.debug('[NW Stomp Client]: ' + str);
+          console.log('[NW Stomp Client]: ' + str);
         } : (str):  string =>{ return str; }
       });
 
@@ -72,24 +72,30 @@ export default class StompClient implements IClient{
      * On Connect Event
      * @param cb Callback Function
      */
-    onConnect = (cb: Frame): void => {
-      this.client.onConnect(cb);
+    onConnect = (cb: clientCallback): void => {
+      this.client.onConnect = (frame: Frame): void => {
+        cb(frame);
+      };
     }
 
     /**
      * On Error Event
      * @param cb Callback Function
      */
-    onError = (cb: Frame): void => {
-      this.client.onStompError(cb);
+    onError = (cb: clientCallback): void => {
+      this.client.onStompError = (frame: Frame): void => {
+        cb(frame);
+      };
     }
 
     /**
      * On Websocket Close Event
      * @param cb Callback Function
      */
-    onWebSocketClose = (cb: CloseEvent): void => {
-      this.client.onWebSocketClose(cb);
+    onWebSocketClose = (cb: clientCallback): void => {
+      this.client.onWebSocketClose = (frame: CloseEvent): void => {
+        cb(frame);
+      };
     }
 
     /**
@@ -104,6 +110,10 @@ export default class StompClient implements IClient{
      */
     deactivate = (): void => {
       this.client.deactivate();
+    }
+
+    isConnected = (): boolean =>{
+      return this.client.connected;
     }
 
 }

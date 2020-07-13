@@ -5,14 +5,13 @@ const fs = require('fs'), glob = require('glob');
 const dir = 'src/types/vNerveTransmitter/vNerve';
 
 // Check if dir exist
-let protoDir = [];
 try {
-  protoDir = fs.readdirSync(dir);
+  fs.readdirSync(dir);
 }catch (e) {
   if(e.code === 'ENOENT'){
     console.error('Fetching Directory Failed! Did you sync all submodules?');
   }else{
-    console.error('Unkown Error:' + e);
+    console.error('Unknown Error:' + e);
   }
   process.exit(-1);
 }
@@ -34,12 +33,14 @@ pbjs.main(pbjsArgs, (pbjsErr,pbjsOut) =>{
     console.error('Errored while compiling ProtoBuf to JavaScript: ' + pbjsErr);
     process.exit(-1);
   }else{
+    console.log('Compiled ProtoBuf to JavaScript, output length: ' + pbjsOut.length);
     console.log('Compiling JavaScript PB to TS Namespace...');
     pbts.main(pbtsArgs,(pbtsErr,pbtsOut)=>{ // wip: This is bad. Callback hell is bad.
       if(pbtsErr){
         console.error('Errored while compiling JavaScript PB to TS Namespace: ' + pbtsErr);
         process.exit(-1);
       }else{
+        console.log('Compiled JavaScript PB to TS Namespace, output length: ' + pbtsOut.length);
         console.log('Success!');
         process.exit(0);
       }

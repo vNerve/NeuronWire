@@ -6,8 +6,105 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NeuronWire Example</title>
+
+    <style>
+        #alert{
+            animation: alertText 1s infinite;
+            font-size: 72px;
+        }
+        #log-out{
+            height: 75vh;
+            width: 90vw;
+            overflow: scroll;
+            border-style: solid;
+            display: block;
+        }
+
+        @keyframes alertText{
+            0%{     color: #f85050;    }
+            49%{    color: #f85050; }
+            50%{    color: transparent; }
+            99%{    color:transparent;  }
+            100%{   color: #f85050;    }
+        }
+    </style>
 </head>
 <body>
-
+    <div class="header">
+        <h2>vNerve NeuronWire JavaScript SDK Example Page</h2>
+        <span id="alert"></span>
+    </div>
+    <hr>
+    <div class="tester">
+        <div class="input-box">
+            <label for="bililive-room-id">Bilibili Live Room ID:</label>
+            <input type="text" id="bililive-room-id" placeholder="Room ID"/>
+            <label for="preset-server-id">Preset Server ID:</label>
+            <input type="number" id="preset-server-id" value="0" min="0" max="1" maxlength="1" minlength="1"/>
+            <button id="bililive-subscribe">Subscribe</button>
+            <button id="bililive-unsubscribe" style="display: none">Unsubscribe</button>
+        </div>
+        <div class="output-box">
+            <h3>Log:</h3>
+            <code id="log-out"></code>
+        </div>
+    </div>
 </body>
+<script>
+    let subID = '', sub = null,client = null;
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      if(window.NeuronWire === undefined){
+        document.querySelector('#alert').innerHTML = 'NeuronWire.js Not Found!';
+        document.querySelector('.tester').innerHTML = 'SDK Example Unavailable!'
+      }else{
+        console.log('NeuronWire.js Found')
+      }
+
+      document.querySelector('#bililive-subscribe').addEventListener('click',subscribe);
+      document.querySelector('#bililive-unsubscribe').addEventListener('click', unsubscribe);
+    })
+
+    const unsubscribe = ()=>{
+        if(sub === null && client === null){
+          return;
+        }
+        if(subID === ''){
+          return;
+        }
+        sub.unsubscribe(subID);
+        client.deactivate();
+        document.querySelector('#bililive-unsubscribe').style.display = 'none';
+        document.querySelector('#bililive-subscribe').style.display = 'inline-block';
+        document.querySelector('#bililive-subscribe').disabled = false;
+    }
+
+    const subscribe = ()=>{
+        const log = document.querySelector('#log-out');
+        const presetServerID = document.querySelector('#preset-server-id').value;
+        const bililiveRoomId = document.querySelector('#bililive-room-id').value;
+        document.querySelector('#bililive-subscribe').disabled = true;
+
+        client = new NeuronWire.ClientConnector.StompClientConnector({ presetServer: parseInt(presetServerID), isDebugEnabled:true });
+        client.onConnect((msg) => {
+          log.innerHTML += '[Connector] Connected to STOMP server: ' + NeuronWire._internal.Endpoint.Preset[presetServerID].url + '.<br>';
+
+          sub = new NeuronWire.Exchange.Room.StompRoomExchange(client);
+          subID = sub.subscribe(bililiveRoomId,'*',(msg)=>{
+            log.innerHTML += '[Exchange] New Message: ' + JSON.stringify(msg) + '<br>';
+          });
+
+          document.querySelector('#bililive-unsubscribe').style.display = 'inline-block';
+          document.querySelector('#bililive-subscribe').style.display = 'none';
+        });
+        client.onError((msg)=>{
+          log.innerHTML += '[Connector] Errored while comm. to STOMP server!<br>';
+        });
+        client.onWebSocketClose((msg)=>{
+          log.innerHTML += '[Connector] Websocket to STOMP server closed!<br>';
+        });
+        client.activate();
+    }
+
+</script>
 </html>

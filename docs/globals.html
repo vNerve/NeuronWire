@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>neuronwire</title>
-	<meta name="description" content="Documentation for neuronwire">
+	<title>@vnerve/neuronwire</title>
+	<meta name="description" content="Documentation for @vnerve/neuronwire">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">neuronwire</a>
+					<a href="index.html" class="title">@vnerve/neuronwire</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>neuronwire</h1>
+			<h1>@vnerve/neuronwire</h1>
 		</div>
 	</div>
 </header>
@@ -68,17 +68,259 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Modules</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-module"><a href="modules/_clients_iclient_.html" class="tsd-kind-icon">&quot;clients/IClient&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_clients_stompclient_.html" class="tsd-kind-icon">&quot;clients/<wbr>Stomp<wbr>Client&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_constants_endpoint_.html" class="tsd-kind-icon">&quot;constants/ENDPOINT&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_exchanges_room_iroomexchange_.html" class="tsd-kind-icon">&quot;exchanges/room/IRoom<wbr>Exchange&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_exchanges_room_stomproomexchange_.html" class="tsd-kind-icon">&quot;exchanges/room/<wbr>Stomp<wbr>Room<wbr>Exchange&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_index_.html" class="tsd-kind-icon">&quot;index&quot;</a></li>
+								<li class="tsd-kind-class"><a href="classes/stompclient.html" class="tsd-kind-icon">Stomp<wbr>Client</a></li>
+								<li class="tsd-kind-class"><a href="classes/stomproomexchange.html" class="tsd-kind-icon">Stomp<wbr>Room<wbr>Exchange</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/iclient.html" class="tsd-kind-icon">IClient</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iroomexchange.html" class="tsd-kind-icon">IRoom<wbr>Exchange</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#clientcallback" class="tsd-kind-icon">client<wbr>Callback</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#roommessagecallback" class="tsd-kind-icon">room<wbr>Message<wbr>Callback</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#endpoint" class="tsd-kind-icon">ENDPOINT</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal"><a href="globals.html#neuronwire" class="tsd-kind-icon">Neuron<wbr>Wire</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="clientcallback" class="tsd-anchor"></a>
+					<h3>client<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">client<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/clients/IClient.ts#L30">clients/IClient.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>message: <span class="tsd-signature-type">unknown</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="roommessagecallback" class="tsd-anchor"></a>
+					<h3>room<wbr>Message<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">room<wbr>Message<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RoomMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/exchanges/room/IRoomExchange.ts#L35">exchanges/room/IRoomExchange.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Message Callback Function declaration</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RoomMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>message: <span class="tsd-signature-type">RoomMessage</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="endpoint" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> ENDPOINT</h3>
+					<div class="tsd-signature tsd-kind-icon">ENDPOINT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Endpoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{url: &#x27;mq1.vnerve.dd.center:7216/ws&#x27;,protocol: &#x27;wss&#x27;,name: &#x27;mirror1&#x27;,username: &#x27;vnerve&#x27;,password: &#x27;vnerve&#x27;},{url: &#x27;mq2.vnerve.dd.center:7216/ws&#x27;, // wip: 茶栗 need to make this workprotocol: &#x27;wss&#x27;,name: &#x27;mirror1&#x27;,username: &#x27;vnerve&#x27;,password: &#x27;vnerve&#x27;}]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/constants/ENDPOINT.ts#L6">constants/ENDPOINT.ts:6</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Pre-set Endpoint Client</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>internal</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="neuronwire" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Neuron<wbr>Wire</h3>
+					<div class="tsd-signature tsd-kind-icon">Neuron<wbr>Wire<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L9">index.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This object defines the SDK</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="neuronwire.clientconnector" class="tsd-anchor"></a>
+						<h3>Client<wbr>Connector</h3>
+						<div class="tsd-signature tsd-kind-icon">Client<wbr>Connector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L24">index.ts:24</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Client Connector Type</p>
+							</div>
+						</div>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+							<a name="neuronwire.clientconnector.stompclientconnector" class="tsd-anchor"></a>
+							<h3>Stomp<wbr>Client<wbr>Connector</h3>
+							<div class="tsd-signature tsd-kind-icon">Stomp<wbr>Client<wbr>Connector<span class="tsd-signature-symbol">:</span> <a href="classes/stompclient.html" class="tsd-signature-type">StompClient</a><span class="tsd-signature-symbol"> = StompClient</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L28">index.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>STOMP protocol client connector class</p>
+								</div>
+							</div>
+						</section>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="neuronwire.exchange" class="tsd-anchor"></a>
+						<h3>Exchange</h3>
+						<div class="tsd-signature tsd-kind-icon">Exchange<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L33">index.ts:33</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Topic Exchange</p>
+							</div>
+						</div>
+						<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+							<a name="neuronwire.exchange.room" class="tsd-anchor"></a>
+							<h3>Room</h3>
+							<div class="tsd-signature tsd-kind-icon">Room<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L37">index.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Room Topic Exchange</p>
+								</div>
+							</div>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+								<a name="neuronwire.exchange.room.stomproomexchange" class="tsd-anchor"></a>
+								<h3>Stomp<wbr>Room<wbr>Exchange</h3>
+								<div class="tsd-signature tsd-kind-icon">Stomp<wbr>Room<wbr>Exchange<span class="tsd-signature-symbol">:</span> <a href="classes/stomproomexchange.html" class="tsd-signature-type">StompRoomExchange</a><span class="tsd-signature-symbol"> = StompRoomExchange</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L38">index.ts:38</a></li>
+									</ul>
+								</aside>
+							</section>
+						</section>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="neuronwire._internal" class="tsd-anchor"></a>
+						<h3>_internal</h3>
+						<div class="tsd-signature tsd-kind-icon">_internal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L13">index.ts:13</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>internal sdk use, but useful for outsider as well</p>
+							</div>
+						</div>
+						<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+							<a name="neuronwire._internal.endpoint" class="tsd-anchor"></a>
+							<h3>Endpoint</h3>
+							<div class="tsd-signature tsd-kind-icon">Endpoint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L17">index.ts:17</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pre-defined STOMP endpoint</p>
+								</div>
+							</div>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+								<a name="neuronwire._internal.endpoint.preset" class="tsd-anchor"></a>
+								<h3>Preset</h3>
+								<div class="tsd-signature tsd-kind-icon">Preset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Endpoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ENDPOINT</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/ssysm/NeuronWire/blob/3b4105b/src/index.ts#L18">index.ts:18</a></li>
+									</ul>
+								</aside>
+							</section>
+						</section>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -88,28 +330,34 @@
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_clients_iclient_.html">&quot;clients/IClient&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_clients_stompclient_.html">&quot;clients/<wbr>Stomp<wbr>Client&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_constants_endpoint_.html">&quot;constants/ENDPOINT&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_exchanges_room_iroomexchange_.html">&quot;exchanges/room/IRoom<wbr>Exchange&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_exchanges_room_stomproomexchange_.html">&quot;exchanges/room/<wbr>Stomp<wbr>Room<wbr>Exchange&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_index_.html">&quot;index&quot;</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/stompclient.html" class="tsd-kind-icon">Stomp<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/stomproomexchange.html" class="tsd-kind-icon">Stomp<wbr>Room<wbr>Exchange</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iclient.html" class="tsd-kind-icon">IClient</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iroomexchange.html" class="tsd-kind-icon">IRoom<wbr>Exchange</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#clientcallback" class="tsd-kind-icon">client<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#roommessagecallback" class="tsd-kind-icon">room<wbr>Message<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#endpoint" class="tsd-kind-icon">ENDPOINT</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#neuronwire" class="tsd-kind-icon">Neuron<wbr>Wire</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -120,15 +368,13 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>

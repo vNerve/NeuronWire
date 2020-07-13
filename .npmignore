@@ -1,7 +1,6 @@
 scripts/
 .github
 src/types/vNerveTransmitter
-docs/
 
 .idea/
 .vs/

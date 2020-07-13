@@ -9,13 +9,16 @@ Under Heavy Development.
  - `npm run build`
 
 ## TODO:
- - [ ] Fix Info Type
- - [ ] Write Example
+ - [X] Fix Info Type
+ - [X] Write Example
  - [ ] Complete API documentation
- - [ ] Publish to npm
+ - [X] Publish to npm
  - [ ] Add Test
 
 ## Example
+
+An SDK example can be found at `dist/example/demo.html` after build the project.
+
 Place `script` tag before the end of `body`
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@vnerve/neuronwire@0.0.1-5/dist/NeuronWire.js"></script>
@@ -33,5 +36,4 @@ const roomSubID = subscriber.subscribe('21908196','*',(msg)=>{
 })
 
 subscriber.unsubscribe(roomSubID) // unsubscribe
-
 ```

@@ -1,3 +1,5 @@
+import {vNerve} from "../types/vNerveTransmitter/vNerve";
+
 /**
  * Client Interface, all Client should should implement this interface.
  * @internal
@@ -24,3 +26,6 @@ export interface IClient {
 
     subscribe(channel: string, cb: unknown): void;
 }
+
+export declare type clientCallback = (message: unknown) => void;
+
