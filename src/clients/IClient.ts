@@ -1,5 +1,3 @@
-import {vNerve} from "../types/vNerveTransmitter/vNerve";
-
 /**
  * Client Interface, all Client should should implement this interface.
  * @internal

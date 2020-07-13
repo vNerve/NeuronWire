@@ -1,6 +1,6 @@
 import { ENDPOINT } from "../constants/ENDPOINT";
 import { Client, Frame, messageCallbackType, StompSubscription } from "@stomp/stompjs";
-import {clientCallback, IClient} from "./IClient";
+import { clientCallback, IClient } from "./IClient";
 
 /**
  * STOMP(WebSocket) Protocol Client.
