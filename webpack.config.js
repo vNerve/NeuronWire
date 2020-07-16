@@ -4,7 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const packageJson = require('./package.json');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -17,7 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts?$/,
-        use: 'ts-loader',
+        use: 'awesome-typescript-loader',
         exclude: /node_modules/,
       }
     ],
@@ -30,6 +30,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/example/index.html",
       filename: process.env.NODE_ENV === 'production' ? 'example/demo.html' : 'index.html'
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/types/vNerve/index.js', to: 'types/vNerve/index.js' } // tsc are dumb af and can't copy js file
+      ],
     }),
   ],
   optimization: {
@@ -45,7 +50,7 @@ module.exports = {
     library: 'NeuronWire',
     filename: 'NeuronWire.js',
     libraryTarget: 'umd',
-    libraryExport: "default",
+    globalObject: `typeof self !== 'undefined' ? self : this`,
     path: path.resolve(__dirname, 'dist'),
   },
 };

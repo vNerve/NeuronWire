@@ -6,7 +6,7 @@ import { ENDPOINT } from "./constants/ENDPOINT";
 /**
  * This object defines the SDK
  */
-const NeuronWire = {
+export = {
   /**
    * internal sdk use, but useful for outsider as well
    */
@@ -44,6 +44,4 @@ const NeuronWire = {
 if(module !== undefined) {
   Object.assign(global, { WebSocket: w3cwebsocket });
 }
-
-export default NeuronWire;
 

@@ -1,5 +1,5 @@
 import { StompSubscription } from "@stomp/stompjs";
-import { vNerve } from '../../types/vNerveTransmitter/vNerve.js';
+import { vNerve } from '../../types/vNerve';
 
 /**
  * Room Exchange Interface, all Room Exchange should implement this interface.
@@ -15,7 +15,10 @@ export interface IRoomExchange {
      */
     subscriptionHMap: ISubscriptionHMap;
 
-    subscribe(roomID: string, type: 'gift' | 'danmaku' | 'online' | 'sc' | '*' // wip: 茶栗 need give me more message type
+    subscribe(roomID: string, type: 'gift' | 'danmaku' | 'online' |
+                  'new_guard' | 'welcome_vip' | 'welcome_guard' | 'sc' |
+                  'user_blocked'| 'live_status' | 'room_change' | 'room_locked' |
+                  'room_warning'| 'room_limited' | 'sc_delete' | '*'
               ,cb: roomMessageCallback): string;
     unsubscribe(id: string): void;
 }

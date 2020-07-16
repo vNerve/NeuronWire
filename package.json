@@ -1,11 +1,11 @@
 {
   "name": "@vnerve/neuronwire",
-  "version": "0.0.1-5",
+  "version": "0.0.2",
   "description": "This is vNerve's JavaScript SDK, NeuronWire.",
-  "main": "dist/NeuronWire.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack && tsc",
     "build:dev": "cross-env NODE_ENV=development webpack",
     "build:protobuf": "node scripts/proto-compile.js",
     "build:doc": "typedoc",
@@ -37,7 +37,9 @@
     "@types/websocket": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^3.6.0",
+    "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "eslint": "^7.4.0",
     "glob": "^7.1.6",
@@ -58,6 +60,10 @@
     "protobufjs": "^6.9.0",
     "websocket": "^1.0.31"
   },
+  "files": [
+    "dist"
+  ],
+  "typings": "index.d.ts",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
