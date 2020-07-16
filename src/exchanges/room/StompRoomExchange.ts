@@ -1,7 +1,7 @@
 import StompClient from "../../clients/StompClient";
 import { IMessage } from "@stomp/stompjs";
 import { IRoomExchange, ISubscriptionHMap, roomMessageCallback } from "./IRoomExchange";
-import { vNerve } from '../../types/vNerve';
+import { vNerve } from '../../types/vNerveTransmitter';
 
 /**
  * STOMP(WebSocket) protocol Live Room Info Exchange

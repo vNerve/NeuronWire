@@ -21,7 +21,7 @@ An SDK example can be found at `dist/example/demo.html` after build the project.
 
 Place `script` tag before the end of `body`
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@vnerve/neuronwire@0.0.2/dist/NeuronWire.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vnerve/neuronwire@0.0.2-1/dist/NeuronWire.js"></script>
 ```
 Sample Code:
 ```javascript

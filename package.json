@@ -1,9 +1,10 @@
 {
   "name": "@vnerve/neuronwire",
-  "version": "0.0.2",
+  "version": "0.0.2-1",
   "description": "This is vNerve's JavaScript SDK, NeuronWire.",
   "main": "dist/index.js",
   "source": "src/index.ts",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack && tsc",
     "build:dev": "cross-env NODE_ENV=development webpack",
@@ -63,7 +64,6 @@
   "files": [
     "dist"
   ],
-  "typings": "index.d.ts",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",

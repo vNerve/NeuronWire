@@ -1,8 +1,8 @@
 /*eslint-disable @typescript-eslint/no-var-requires*/
-// This script will compile *.proto file in src/types/vNerve to both JS and TS module
+// This script will compile *.proto file in src/types/vNerveTransmitter to both JS and TS module
 const pbjs = require("protobufjs/cli/pbjs"), pbts = require('protobufjs/cli/pbts');
 const fs = require('fs'), glob = require('glob');
-const dir = 'src/types/vNerve/vNerve';
+const dir = 'src/types/vNerveTransmitter/';
 
 // Check if dir exist
 try {
@@ -21,10 +21,10 @@ const files = glob.sync(dir + '/**/*.proto');
 
 // Construct Args.
 const pbjsArgs = ['-t','static-module', '-w', 'commonjs', '--no-beautify', '--no-create',
-  '--no-encode', '--no-convert', '--no-verify', '--no-delimited', '-o', 'src/types/vNerve/index.js',
+  '--no-encode', '--no-convert', '--no-verify', '--no-delimited', '-o', 'src/types/vNerveTransmitter/index.js',
   ...files];
-const pbtsArgs = ['-o', 'src/types/vNerve/index.d.ts', '--no-comments',
-  'src/types/vNerve/index.js'];
+const pbtsArgs = ['-o', 'src/types/vNerveTransmitter/index.d.ts', '--no-comments',
+  'src/types/vNerveTransmitter/index.js'];
 
 // Compile
 console.log('Compiling ProtoBuf to JavaScript...');

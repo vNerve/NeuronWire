@@ -33,7 +33,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'src/types/vNerve/index.js', to: 'types/vNerve/index.js' } // tsc are dumb af and can't copy js file
+        { from: 'src/types/vNerveTransmitter/index.js', to: 'types/vNerveTransmitter/index.js' },
       ],
     }),
   ],

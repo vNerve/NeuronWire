@@ -1,5 +1,5 @@
 import { StompSubscription } from "@stomp/stompjs";
-import { vNerve } from '../../types/vNerve';
+import { vNerve } from '../../types/vNerveTransmitter';
 
 /**
  * Room Exchange Interface, all Room Exchange should implement this interface.
