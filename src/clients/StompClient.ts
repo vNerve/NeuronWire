@@ -1,6 +1,6 @@
-import { ENDPOINT } from "../constants/ENDPOINT";
-import { Client, Frame, messageCallbackType, StompSubscription } from "@stomp/stompjs";
-import { clientCallback, IClient } from "./IClient";
+import { ENDPOINT } from '../constants/ENDPOINT';
+import { Client, Frame, messageCallbackType, StompSubscription } from '@stomp/stompjs';
+import { clientCallback, IClient } from './IClient';
 
 /**
  * STOMP(WebSocket) Protocol Client.
@@ -52,9 +52,9 @@ export default class StompClient implements IClient{
         reconnectDelay: this.retryTime,
         heartbeatIncoming: this.heartbeatIn,
         heartbeatOutgoing: this.heartbeatOut,
-        debug: this.isDebugEnabled ? (str): void=>{
+        debug: this.isDebugEnabled ? (str): void => {
           console.log('[NW Stomp Client]: ' + str);
-        } : (str):  string =>{ return str; }
+        } : (str):  string => { return str; }
       });
 
     }
@@ -112,7 +112,7 @@ export default class StompClient implements IClient{
       this.client.deactivate();
     }
 
-    isConnected = (): boolean =>{
+    isConnected = (): boolean => {
       return this.client.connected;
     }
 

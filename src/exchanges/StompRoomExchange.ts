@@ -1,6 +1,6 @@
-import StompClient from "../clients/StompClient";
-import { IMessage, StompSubscription } from "@stomp/stompjs";
-import { IRoomExchange } from "./IRoomExchange";
+import StompClient from '../clients/StompClient';
+import { IMessage, StompSubscription } from '@stomp/stompjs';
+import { IRoomExchange } from './IRoomExchange';
 import { vNerve } from '../types/vNerveTransmitter';
 import { createNanoEvents, Emitter } from 'nanoevents';
 /**
@@ -43,73 +43,73 @@ export default class StompRoomExchange implements IRoomExchange{
       this.subscriptionEmitter.emit('unsubscribe', null);
     }
 
-    private stompCb = (rawCb: IMessage): void =>{
+    private stompCb = (rawCb: IMessage): void => {
       const rootMessage = vNerve.bilibili.live.RoomMessage.decode(rawCb.binaryBody);
       this.subscriptionEmitter.emit('all', rootMessage);
       // huge switch
       switch (rootMessage.payload) {
-      case "popularityChange":
+      case 'popularityChange':
         this.subscriptionEmitter.emit('popularityChange', rootMessage.popularityChange.popularity);
         break;
-      case "liveStatus":
+      case 'liveStatus':
         this.subscriptionEmitter.emit('liveStatus', rootMessage.liveStatus.status);
         break;
-      case "infoChange":
+      case 'infoChange':
         // eslint-disable-next-line no-case-declarations
         const changedInfo = new vNerve.bilibili.live.RoomInfoChangedMessage(rootMessage.infoChange);
         this.subscriptionEmitter.emit('infoChange', changedInfo);
         switch (changedInfo.changed) {
-        case "baseInfo":
+        case 'baseInfo':
           this.subscriptionEmitter.emit('baseInfo', changedInfo.baseInfo);
           break;
-        case "backgroundUrl":
+        case 'backgroundUrl':
           this.subscriptionEmitter.emit('backgroundUrl', changedInfo.backgroundUrl);
           break;
-        case "skinId":
+        case 'skinId':
           this.subscriptionEmitter.emit('skinId', changedInfo.skinId);
           break;
-        case "admin":
+        case 'admin':
           this.subscriptionEmitter.emit('admin', changedInfo.admin.uid);
           break;
         }
         break;
-      case "roomLocked":
+      case 'roomLocked':
         this.subscriptionEmitter.emit('roomLocked', rootMessage.roomLocked.lockedUntil);
         break;
-      case "roomWarning":
+      case 'roomWarning':
         this.subscriptionEmitter.emit('roomWarning', rootMessage.roomWarning.message);
         break;
-      case "roomLimited":
+      case 'roomLimited':
         this.subscriptionEmitter.emit('roomLimited', rootMessage.roomLimited);
         break;
-      case "superchatDelete":
+      case 'superchatDelete':
         this.subscriptionEmitter.emit('superchatDelete', rootMessage.superchatDelete.id);
         break;
-      case "userMessage":
+      case 'userMessage':
         // eslint-disable-next-line no-case-declarations
         const userMessage = new vNerve.bilibili.live.UserMessage(rootMessage.userMessage);
         this.subscriptionEmitter.emit('userMessage', userMessage);
         switch (userMessage.payload)
         {
-        case "danmaku":
+        case 'danmaku':
           this.subscriptionEmitter.emit('danmaku', userMessage.danmaku);
           break;
-        case "gift":
+        case 'gift':
           this.subscriptionEmitter.emit('gift', userMessage.gift);
           break;
-        case "superChat":
+        case 'superChat':
           this.subscriptionEmitter.emit('superChat', userMessage.superChat);
           break;
-        case "newGuard":
+        case 'newGuard':
           this.subscriptionEmitter.emit('newGuard', userMessage.newGuard);
           break;
-        case "welcomeVip":
+        case 'welcomeVip':
           this.subscriptionEmitter.emit('welcomeVip', userMessage.welcomeVip);
           break;
-        case "welcomeGuard":
+        case 'welcomeGuard':
           this.subscriptionEmitter.emit('welcomeGuard', userMessage.welcomeGuard);
           break;
-        case "userBlocked":
+        case 'userBlocked':
           this.subscriptionEmitter.emit('userBlocked', userMessage.userBlocked);
           break;
         }

@@ -1,4 +1,4 @@
-import { Endpoint } from "../types/Endpoint";
+import { Endpoint } from '../types/Endpoint';
 /**
  * Pre-set Endpoint Client
  * @internal

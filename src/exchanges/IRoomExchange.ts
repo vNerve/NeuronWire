@@ -1,4 +1,4 @@
-import { StompSubscription } from "@stomp/stompjs";
+import { StompSubscription } from '@stomp/stompjs';
 
 /**
  * Room Exchange Interface, all Room Exchange should implement this interface.

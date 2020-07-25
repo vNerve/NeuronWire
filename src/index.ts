@@ -1,7 +1,7 @@
 import { w3cwebsocket } from 'websocket';
-import StompClient from "./clients/StompClient";
-import StompRoomExchange from "./exchanges/StompRoomExchange";
-import { ENDPOINT } from "./constants/ENDPOINT";
+import StompClient from './clients/StompClient';
+import StompRoomExchange from './exchanges/StompRoomExchange';
+import { ENDPOINT } from './constants/ENDPOINT';
 
 /**
  * This object defines the SDK
