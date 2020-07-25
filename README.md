@@ -25,15 +25,22 @@ Place `script` tag before the end of `body`
 ```
 Sample Code:
 ```javascript
-// Create Connector
+// Create connector
 const connector = new NeuronWire.ClientConnector.StompClientConnector({presetServer:0})
 connector.activate() // Connect
 
-// Register Subscriber
-const subscriber = new NeuronWire.Exchange.Room.StompRoomExchange(connector)
-const roomSubID = subscriber.subscribe('21908196','*',(msg)=>{
-    console.log(JSON.stringify(msg)) // <- Get your decoded message here
+// Wait for connector to connect
+connector.onConnect(()=>{
+  // Register subscriber
+  const subscriber = new NeuronWire.Exchange.StompRoomExchange(connector)
+  const roomSubscription = subscriber.subscribe('21908196','*');
+  // Listen event
+  const roomEventEmitter = roomSubscription.emitter;
+  roomEventEmitter.on('all', (event)=>{
+    console.log(event);
+  });
+
+  // subscriber.unsubscribe() to unsubscribe
 })
 
-subscriber.unsubscribe(roomSubID) // unsubscribe
 ```

@@ -1,6 +1,6 @@
 import { w3cwebsocket } from 'websocket';
 import StompClient from "./clients/StompClient";
-import StompRoomExchange from "./exchanges/room/StompRoomExchange";
+import StompRoomExchange from "./exchanges/StompRoomExchange";
 import { ENDPOINT } from "./constants/ENDPOINT";
 
 /**
@@ -34,9 +34,7 @@ export = {
     /**
      * Room Topic Exchange
      */
-    Room:{
-      StompRoomExchange: StompRoomExchange
-    }
+    StompRoomExchange
   }
 };
 

@@ -87,9 +87,10 @@
 
         client = new NeuronWire.ClientConnector.StompClientConnector({ presetServer: parseInt(presetServerID), isDebugEnabled:true });
         client.onConnect((msg) => {
+          console.log('[Connector] onConnect: ' + msg);
           log.innerHTML += '[Connector] Connected to STOMP server: ' + NeuronWire._internal.Endpoint.Preset[presetServerID].url + '.<br>';
 
-          sub = new NeuronWire.Exchange.Room.StompRoomExchange(client);
+          sub = new NeuronWire.Exchange.StompRoomExchange(client);
           subID = sub.subscribe(bililiveRoomId,'*',(msg)=>{
             log.innerHTML += '[Exchange] New Message: ' + JSON.stringify(msg) + '<br>';
           });
@@ -98,10 +99,10 @@
           document.querySelector('#bililive-subscribe').style.display = 'none';
         });
         client.onError((msg)=>{
-          log.innerHTML += '[Connector] Errored while comm. to STOMP server!<br>';
+          log.innerHTML += '[Connector] Errored while comm. to STOMP server!' + msg + '<br>';
         });
         client.onWebSocketClose((msg)=>{
-          log.innerHTML += '[Connector] Websocket to STOMP server closed!<br>';
+          log.innerHTML += '[Connector] Websocket to STOMP server closed!<br>' + msg + '<br>';
         });
         client.activate();
     }

@@ -20,7 +20,7 @@ try {
 const files = glob.sync(dir + '/**/*.proto');
 
 // Construct Args.
-const pbjsArgs = ['-t','static-module', '-w', 'commonjs', '--no-beautify', '--no-create',
+const pbjsArgs = ['-t', 'static-module', '-w', 'commonjs', '--no-beautify', '--no-create',
   '--no-encode', '--no-convert', '--no-verify', '--no-delimited', '-o', 'src/types/vNerveTransmitter/index.js',
   ...files];
 const pbtsArgs = ['-o', 'src/types/vNerveTransmitter/index.d.ts', '--no-comments',
@@ -28,14 +28,14 @@ const pbtsArgs = ['-o', 'src/types/vNerveTransmitter/index.d.ts', '--no-comments
 
 // Compile
 console.log('Compiling ProtoBuf to JavaScript...');
-pbjs.main(pbjsArgs, (pbjsErr,pbjsOut) =>{
+pbjs.main(pbjsArgs, (pbjsErr, pbjsOut) =>{
   if(pbjsErr){
     console.error('Errored while compiling ProtoBuf to JavaScript: ' + pbjsErr);
     process.exit(-1);
   }else{
     console.log('Compiled ProtoBuf to JavaScript, output length: ' + pbjsOut.length);
     console.log('Compiling JavaScript PB to TS Namespace...');
-    pbts.main(pbtsArgs,(pbtsErr,pbtsOut)=>{ // wip: This is bad. Callback hell is bad.
+    pbts.main(pbtsArgs, (pbtsErr, pbtsOut)=>{ // wip: This is bad. Callback hell is bad.
       if(pbtsErr){
         console.error('Errored while compiling JavaScript PB to TS Namespace: ' + pbtsErr);
         process.exit(-1);
